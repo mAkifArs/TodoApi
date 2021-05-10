@@ -24,11 +24,10 @@ namespace TodoApp.API.Controllers
         }
 
         [Route("api/todolist/get")]
-        [HttpGet]
-        public async Task<IActionResult> GetListAsync([FromBody]string name)
+        [HttpPost]
+        public async Task<IActionResult> GetListAsync([FromQuery]string name)
         {
-            await _todoListService.GetTodoLists(name);
-            return Ok();
+            return Ok(await _todoListService.GetTodoLists(name));
         }
     }
 }

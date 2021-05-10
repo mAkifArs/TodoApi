@@ -61,9 +61,19 @@ namespace TodoApi.APP.AppServices.Services
                     {
                         Content = list.Content,
                         DateofJob = list.DateofJob,
-                        UserId = user.UserId
+                        UserId = user.UserId,
+                        UserInfoDto = new UserInfoDTO
+                        {
+                            Mail = user.Mail,
+                            Name = user.Name
+                        }
                     });
                 }
+
+            if (dto.Count==0)
+            {
+                throw new Exception("Kullanıcıın yapılacaklar listesi boş");
+            }
 
             return dto;
         }

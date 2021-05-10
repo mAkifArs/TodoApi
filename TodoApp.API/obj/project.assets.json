@@ -1356,10 +1356,7 @@
         },
         "runtime": {
           "bin/placeholder/TodoApi.APP.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "TodoApi.DATA/1.0.0": {
         "type": "project",
@@ -1382,10 +1379,7 @@
         },
         "runtime": {
           "bin/placeholder/TodoApi.DATA.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
