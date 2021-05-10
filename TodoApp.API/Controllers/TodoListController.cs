@@ -29,5 +29,12 @@ namespace TodoApp.API.Controllers
         {
             return Ok(await _todoListService.GetTodoLists(name));
         }
+
+        [Route("api/todolist/gettodaylist")]
+        [HttpPost]
+        public async Task<IActionResult> GetListForTodayAsync([FromQuery]string name)
+        {
+            return Ok(await _todoListService.GetTodoListsForToday(name));
+        }
     }
 }
