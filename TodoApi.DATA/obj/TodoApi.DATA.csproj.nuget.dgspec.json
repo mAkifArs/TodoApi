@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj": {}
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj": {
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj",
         "projectName": "TodoApi.DATA",
-        "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj",
-        "packagesPath": "C:\\Users\\NAZAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\obj\\",
+        "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NAZAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -108,11 +108,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

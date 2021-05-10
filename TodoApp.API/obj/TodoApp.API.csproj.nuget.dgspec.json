@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Workspace\\TodoApi\\TodoApp.API\\TodoApp.API.csproj": {}
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApp.API\\TodoApp.API.csproj": {}
   },
   "projects": {
-    "C:\\Workspace\\TodoApi\\TodoApi.APP\\TodoApi.APP.csproj": {
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\TodoApi.APP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\TodoApi\\TodoApi.APP\\TodoApi.APP.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\TodoApi.APP.csproj",
         "projectName": "TodoApi.APP",
-        "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.APP\\TodoApi.APP.csproj",
-        "packagesPath": "C:\\Users\\NAZAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\TodoApi\\TodoApi.APP\\obj\\",
+        "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\TodoApi.APP.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NAZAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj": {
-                "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj"
+              "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj": {
+                "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj"
               }
             }
           }
@@ -112,25 +112,28 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj": {
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj",
         "projectName": "TodoApi.DATA",
-        "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj",
-        "packagesPath": "C:\\Users\\NAZAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\obj\\",
+        "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NAZAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -224,25 +227,28 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Workspace\\TodoApi\\TodoApp.API\\TodoApp.API.csproj": {
+    "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApp.API\\TodoApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Workspace\\TodoApi\\TodoApp.API\\TodoApp.API.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApp.API\\TodoApp.API.csproj",
         "projectName": "TodoApp.API",
-        "projectPath": "C:\\Workspace\\TodoApi\\TodoApp.API\\TodoApp.API.csproj",
-        "packagesPath": "C:\\Users\\NAZAN\\.nuget\\packages\\",
-        "outputPath": "C:\\Workspace\\TodoApi\\TodoApp.API\\obj\\",
+        "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApp.API\\TodoApp.API.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\NAZAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -256,11 +262,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Workspace\\TodoApi\\TodoApi.APP\\TodoApi.APP.csproj": {
-                "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.APP\\TodoApi.APP.csproj"
+              "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\TodoApi.APP.csproj": {
+                "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.APP\\TodoApi.APP.csproj"
               },
-              "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj": {
-                "projectPath": "C:\\Workspace\\TodoApi\\TodoApi.DATA\\TodoApi.DATA.csproj"
+              "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj": {
+                "projectPath": "C:\\Users\\hp\\RiderProjects\\TodoApi3\\TodoApi.DATA\\TodoApi.DATA.csproj"
               }
             }
           }
@@ -354,7 +360,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

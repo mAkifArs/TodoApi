@@ -34,7 +34,7 @@ namespace TodoApp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> GetListForTodayAsync([FromQuery]string name)
         {
-            return Ok(await _todoListService.GetTodoListsForToday(name));
+            return Ok(await _todoListService.GetTodoListsToday(name));
         }
     }
 }

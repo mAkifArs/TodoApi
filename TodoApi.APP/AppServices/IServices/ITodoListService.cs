@@ -9,5 +9,6 @@ namespace TodoApi.APP.AppServices.IServices
         Task AddTodoListAsync(TodoListDTO todoListDto);
         Task<TodoListDTO> GetTodoList(int id);
         Task<List<TodoListDTO>> GetTodoLists(string username);
+        Task<List<TodoListDTO>> GetTodoListsToday(string username);
     }
 }

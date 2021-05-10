@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +30,7 @@ namespace TodoApi.APP.AppServices.Services
             {
                 throw new Exception("User not found");
             }
-
+            
             var todolist = new TodoList
             {
                 Content = todoListDto.Content,
@@ -78,7 +79,7 @@ namespace TodoApi.APP.AppServices.Services
             return dto;
         }
 
-        public async Task<List<TodoListDTO>> GetTodoLists(string username)
+        public async Task<List<TodoListDTO>> GetTodoListsToday(string username)
         {
             var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
             if (user == null)
@@ -108,8 +109,9 @@ namespace TodoApi.APP.AppServices.Services
             {
                 throw new Exception("Kullanıcının yapılacaklar listesi boş");
             }
-
             return dto;
         }
+
+        
     }
 }
