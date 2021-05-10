@@ -1,0 +1,15 @@
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\TodoApi.DATA.deps.json
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\TodoApi.DATA.runtimeconfig.json
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\TodoApi.DATA.runtimeconfig.dev.json
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\TodoApi.DATA.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\ref\TodoApi.DATA.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\bin\MCD\Debug\net5.0\TodoApi.DATA.pdb
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.csprojAssemblyReference.cache
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.AssemblyInfoInputs.cache
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.AssemblyInfo.cs
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.csproj.CoreCompileInputs.cache
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\ref\TodoApi.DATA.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.pdb
+C:\Users\hp\RiderProjects\TodoApi3\TodoApi.DATA\obj\MCD\Debug\net5.0\TodoApi.DATA.genruntimeconfig.cache
