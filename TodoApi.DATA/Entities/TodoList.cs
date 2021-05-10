@@ -11,7 +11,6 @@ namespace TodoApi.DATA.Entities
         public int TodoId { get; set; } 
         public string Content { get; set; }
         public DateTime DateofJob { get; set; }
-        public int UserId {get; set; }
         public UserInfo UserInfo { get; set; }
         
     }
