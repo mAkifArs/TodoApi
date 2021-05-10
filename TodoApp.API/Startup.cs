@@ -19,8 +19,7 @@ using Microsoft.OpenApi.Models;
 using TodoApi.APP.AppServices.IServices;
 using TodoApi.APP.AppServices.Services;
 using TodoApi.DATA;
-using TodoApi.DATA.Repositories.IRepository;
-using TodoApi.DATA.Repositories.Repository;
+
 
 
 namespace TodoApp.API
@@ -41,9 +40,7 @@ namespace TodoApp.API
             services.AddHangfireServer();
             services.AddControllers();
             services.AddScoped<ITodoListService, TodoListService>();
-            services.AddScoped<ITodoListRepository, TodoListRepository>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserInfoRepository, UserInfoRepository>();
             services.AddDbContext<TodoApiDataContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("Postgres")));
             services.AddSwaggerGen(c =>

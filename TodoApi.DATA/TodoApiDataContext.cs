@@ -15,18 +15,9 @@ namespace TodoApi.DATA
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserInfo>().Property(b => b.UserId).UseIdentityAlwaysColumn();
-            
-            modelBuilder.Entity<TodoList>().Property(b => b.TodoId).UseIdentityAlwaysColumn();
-            
-            
-            
             modelBuilder.Entity<TodoList>()
-                .HasOne(u => u.UserInfo)
-                .WithMany(t => t.Todos).HasForeignKey(x => x.UserId);
-            
-            
+                .HasOne(e => e.UserInfo)
+                .WithMany(c => c.TodoLists);
         }
-        
     }
 }

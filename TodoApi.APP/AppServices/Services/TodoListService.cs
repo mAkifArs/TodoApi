@@ -1,30 +1,71 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using TodoApi.APP.AppServices.IServices;
+using TodoApi.DATA;
 using TodoApi.DATA.DTO;
 using TodoApi.DATA.Entities;
-using TodoApi.DATA.Repositories.IRepository;
-using TodoApi.DATA.Repositories.Repository;
 
 namespace TodoApi.APP.AppServices.Services
 {
     public class TodoListService : ITodoListService
     {
-        private readonly ITodoListRepository _todoListRepository;
+        private readonly TodoApiDataContext _context;
 
-        public TodoListService(ITodoListRepository todoListRepository)
+        public TodoListService(TodoApiDataContext context)
         {
-            _todoListRepository = todoListRepository;
+            _context = context;
         }
+
 
         public async Task AddTodoListAsync(TodoListDTO todoListDto)
         {
-            var todoList = new TodoList
+            var user =  _context.UserInfos
+                .Include(x => x.TodoLists)
+                .FirstOrDefault(x => todoListDto.UserId==x.UserId);
+            if (user == null )
             {
-                UserId = todoListDto.UserId,
+                throw new Exception("User not found");
+            }
+
+            var todolist = new TodoList
+            {
                 Content = todoListDto.Content,
-                DateofJob = todoListDto.DateofJob
+                DateofJob = todoListDto.DateofJob,
+                UserInfo = user
             };
-            _todoListRepository.AddTodoList(todoList);
+            await _context.TodoLists.AddAsync(todolist);
+            await _context.SaveChangesAsync();
+
+        }
+
+        public Task<TodoListDTO> GetTodoList(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<List<TodoListDTO>> GetTodoLists(string username)
+        {
+            var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı bulunamadı");
+            }
+            var dto = new List<TodoListDTO>();
+            if (user.TodoLists != null)
+                foreach (var list in user.TodoLists)
+                {
+                    dto.Add(new TodoListDTO
+                    {
+                        Content = list.Content,
+                        DateofJob = list.DateofJob,
+                        UserId = user.UserId
+                    });
+                }
+
+            return dto;
         }
     }
 }

@@ -1,34 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TodoApi.APP.AppServices.IServices;
+using TodoApi.DATA;
 using TodoApi.DATA.DTO;
 using TodoApi.DATA.Entities;
-using TodoApi.DATA.Repositories.IRepository;
 
 namespace TodoApi.APP.AppServices.Services
 {
     public class UserService : IUserService
     {
-        private readonly IUserInfoRepository _userInfoRepository;
-        public UserService(IUserInfoRepository userInfoRepository)
+        private readonly TodoApiDataContext _db;
+
+        public UserService(TodoApiDataContext db)
         {
-            _userInfoRepository = userInfoRepository;
-        }
-        public async Task AddUserAsync(UserInfoDTO userInfoDto )
-        {
-            var userInfo = new UserInfo
-            {
-                Name = userInfoDto.Name,
-                Mail = userInfoDto.Mail
-            };
-            _userInfoRepository.AddUserInfo(userInfo);
+            _db = db;
         }
 
-        public async Task<UserInfoDTO> GetAsync(int userid)
+
+        public async Task AddUserAsync(UserInfoDTO userInfoDto)
         {
+            var user = new UserInfo
+            {
+                Mail = userInfoDto.Mail,
+                Name = userInfoDto.Name
+            };
+            await _db.UserInfos.AddAsync(user);
+            await _db.SaveChangesAsync();
         }
-        
     }
     
 }
