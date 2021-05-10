@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
-using TodoApi.DATA.Entities;
 
 namespace TodoApi.DATA.DTO
 {
@@ -11,5 +8,6 @@ namespace TodoApi.DATA.DTO
         public string Content { get; set; }
         public DateTime DateofJob { get; set; }
         public int UserId { get; set; }
+        public UserInfoDTO UserInfoDto { get; set; }
     }
 }

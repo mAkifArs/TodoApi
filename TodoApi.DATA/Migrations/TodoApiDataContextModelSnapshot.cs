@@ -24,7 +24,7 @@ namespace TodoApi.DATA.Migrations
                     b.Property<int>("TodoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Content")
                         .HasColumnType("text");
@@ -32,12 +32,12 @@ namespace TodoApi.DATA.Migrations
                     b.Property<DateTime>("DateofJob")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserInfoUserId")
                         .HasColumnType("integer");
 
                     b.HasKey("TodoId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserInfoUserId");
 
                     b.ToTable("TodoLists");
                 });
@@ -47,12 +47,14 @@ namespace TodoApi.DATA.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Mail")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("UserId");
@@ -60,61 +62,18 @@ namespace TodoApi.DATA.Migrations
                     b.ToTable("UserInfos");
                 });
 
-            modelBuilder.Entity("TodoApi.DATA.Entities.UserTodoList", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TodoId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("UserId", "TodoId");
-
-                    b.HasIndex("TodoId");
-
-                    b.ToTable("UserTodoList");
-                });
-
             modelBuilder.Entity("TodoApi.DATA.Entities.TodoList", b =>
                 {
                     b.HasOne("TodoApi.DATA.Entities.UserInfo", "UserInfo")
-                        .WithMany("Todos")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("TodoLists")
+                        .HasForeignKey("UserInfoUserId");
 
                     b.Navigation("UserInfo");
-                });
-
-            modelBuilder.Entity("TodoApi.DATA.Entities.UserTodoList", b =>
-                {
-                    b.HasOne("TodoApi.DATA.Entities.TodoList", "TodoList")
-                        .WithMany("UserTodoLists")
-                        .HasForeignKey("TodoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TodoApi.DATA.Entities.UserInfo", "UserInfo")
-                        .WithMany("UserTodoLists")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TodoList");
-
-                    b.Navigation("UserInfo");
-                });
-
-            modelBuilder.Entity("TodoApi.DATA.Entities.TodoList", b =>
-                {
-                    b.Navigation("UserTodoLists");
                 });
 
             modelBuilder.Entity("TodoApi.DATA.Entities.UserInfo", b =>
                 {
-                    b.Navigation("Todos");
-
-                    b.Navigation("UserTodoLists");
+                    b.Navigation("TodoLists");
                 });
 #pragma warning restore 612, 618
         }
