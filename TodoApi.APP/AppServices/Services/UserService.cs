@@ -20,6 +20,7 @@ namespace TodoApi.APP.AppServices.Services
         {
             var user = new UserInfo
             {
+                UserId = userInfoDto.UserId,
                 Mail = userInfoDto.Mail,
                 Name = userInfoDto.Name
             };
@@ -27,5 +28,4 @@ namespace TodoApi.APP.AppServices.Services
             await _db.SaveChangesAsync();
         }
     }
-    
 }
