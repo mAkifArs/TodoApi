@@ -52,21 +52,20 @@ namespace TodoApi.APP.AppServices.Services
                 throw new Exception("Kullanıcı bulunamadı");
             }
             var dto = new List<TodoListDTO>();
-            if (user.TodoLists != null)
-                foreach (var list in user.TodoLists)
-                {
-                    dto.Add(new TodoListDTO
+            if (user.TodoLists != null){
+                dto = user.TodoLists
+                    .Select(todo => new TodoListDTO()
                     {
-                        Content = list.Content,
-                        DateofJob = list.DateofJob,
+                        Content = todo.Content,
+                        DateofJob = todo.DateofJob,
                         UserId = user.UserId,
                         UserInfoDto = new UserInfoDTO
                         {
                             Mail = user.Mail,
                             Name = user.Name
                         }
-                    });
-                }
+                    }).ToList();
+            }
 
             if (dto.Count==0)
             {
@@ -76,40 +75,7 @@ namespace TodoApi.APP.AppServices.Services
             return dto;
         }
 
-        public async Task<List<TodoListDTO>> GetTodoListsToday(string username)
-        {
-            var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
-            if (user == null)
-            {
-                throw new Exception("Kullanıcı bulunamadı");
-            }
-            var dto = new List<TodoListDTO>();
-            if (user.TodoLists != null)
-                foreach (var list in user.TodoLists)
-                {
-                    if(list.DateofJob == DateTime.Today) {
-                        dto.Add(new TodoListDTO
-                        {
-                            Content = list.Content,
-                            DateofJob = list.DateofJob,
-                            UserId = user.UserId,
-                            UserInfoDto = new UserInfoDTO
-                            {
-                                Mail = user.Mail,
-                                Name = user.Name
-                            }
-                        });
-                    }
-                }
-
-            if (dto.Count==0)
-            {
-                throw new Exception("Kullanıcının yapılacaklar listesi boş");
-            }
-            return dto;
-        }
-
-        public async Task SendEmail(string username)
+        public async Task<List<TodoListDTO>> GetTodoListWithDate(string username, DateTime dateTime)
         {
             var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
             if (user == null)
@@ -118,25 +84,50 @@ namespace TodoApi.APP.AppServices.Services
             }
             var dto = new List<TodoListDTO>();
             if (user.TodoLists != null){
-                foreach (var list in user.TodoLists)
-                {
-                    if (list.DateofJob == DateTime.Today)
+                dto = user.TodoLists.Where(todo =>
+                        todo.DateofJob.ToShortDateString().Equals(dateTime.ToShortDateString()))
+                    .Select(todo => new TodoListDTO()
                     {
-                        dto.Add(new TodoListDTO
+                        Content = todo.Content,
+                        DateofJob = todo.DateofJob,
+                        UserId = user.UserId,
+                        UserInfoDto = new UserInfoDTO
                         {
-                            Content = list.Content,
-                            DateofJob = list.DateofJob,
-                            UserId = user.UserId,
-                            UserInfoDto = new UserInfoDTO
-                            {
-                                Mail = user.Mail,
-                                Name = user.Name
-                            }
-                        });
-                    }
-                }
+                            Mail = user.Mail,
+                            Name = user.Name
+                        }
+                    }).ToList();
             }
+            if (dto.Count==0)
+            {
+                throw new Exception("Kullanıcının yapılacaklar listesi boş");
+            }
+            return dto;
+        }
 
+        public async Task TodaysTodoSendEmail(string username)
+        {
+            var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı bulunamadı");
+            }
+            var usersTodayTodos = await GetTodoListWithDate(username,DateTime.Now);
+            await SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray());
+        }
+        public async Task TomorrowsTodo(string username)
+        {
+            var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı bulunamadı");
+            }
+            var usersTodayTodos = await GetTodoListWithDate(username,DateTime.Today.AddDays(1));
+            await SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray());
+        }
+
+        public async Task SendMail(string userMail,string [] mailContent)
+        {
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
@@ -144,10 +135,9 @@ namespace TodoApi.APP.AppServices.Services
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
             };
-            var mailContent = dto.Select(x => x.Content); 
-            var mailMessage = new MailAddress(user.Mail);
+            var mailMessage = new MailAddress(userMail);
             smtpClient.Send("ars.makif@gmail.com",""+mailMessage +"","Günlük Hatırlatma",@"Merhaba Bugün Yapacaklarınız :"+ String.Join(", ", mailContent.ToArray())+"")  ;
-            
+
         }
     }
 

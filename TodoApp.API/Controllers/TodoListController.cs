@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.APP.AppServices.IServices;
 using TodoApi.DATA.DTO;
@@ -25,23 +26,36 @@ namespace TodoApp.API.Controllers
 
         [Route("api/todolist/get")]
         [HttpPost]
-        public async Task<IActionResult> GetListAsync([FromQuery]string name)
+        public async Task<IActionResult> GetListAsync([FromQuery]string username)
         {
-            return Ok(await _todoListService.GetTodoLists(name));
+            return Ok(await _todoListService.GetTodoLists(username));
         }
 
-        [Route("api/todolist/getTodayList")]
+        [Route("api/todolist/getTodoListWithDate")]
         [HttpPost]
-        public async Task<IActionResult> GetListForTodayAsync([FromQuery]string name)
+        public async Task<IActionResult> GetTodoListWithDate([FromQuery]string username,DateTime dateTime)
         {
-            return Ok(await _todoListService.GetTodoListsToday(name));
+            return Ok(await _todoListService.GetTodoListWithDate(username,dateTime));
         }
-        
+
+        [Route("api/todolist/todayslist")]
+        [HttpPost]
+        public IActionResult TodaysTodoSendEmail(string username)
+        {
+            return Ok(_todoListService.TodaysTodoSendEmail(username));
+        }
         [Route("api/todolist/mailSender")]
         [HttpPost]
-        public  IActionResult SendEmailToUser(string username)
+        public  IActionResult SendMail(string userMail,string [] mailContent)
         {
-            return Ok(_todoListService.SendEmail(username));
+            return Ok(_todoListService.SendMail(userMail,mailContent));
+        }
+
+        [Route("api/todolist/TomorrowsTodo")]
+        [HttpPost]
+        public IActionResult TomorrowsTodo(string username)
+        {
+            return Ok(_todoListService.TomorrowsTodo(username));
         }
     }
 }
