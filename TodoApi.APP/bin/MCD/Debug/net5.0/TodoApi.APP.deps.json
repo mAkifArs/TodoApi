@@ -18,6 +18,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0-preview.3.21201.2",
           "Microsoft.Extensions.Configuration": "6.0.0-preview.3.21201.4",
           "Mock": "1.0.0",
+          "MockMailbox": "0.1.0",
           "Npgsql": "6.0.0-preview3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0-preview3",
           "System.ComponentModel.Annotations": "6.0.0-preview.3.21201.4",
@@ -576,6 +577,14 @@
           }
         }
       },
+      "MockMailbox/0.1.0": {
+        "runtime": {
+          "lib/MockMailbox.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/11.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -904,6 +913,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.0-preview.3.21201.2",
           "Microsoft.Extensions.Configuration": "6.0.0-preview.3.21201.4",
           "Mock": "1.0.0",
+          "MockMailbox": "0.1.0",
           "Npgsql": "6.0.0-preview3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.0-preview3",
           "System.ComponentModel.Annotations": "6.0.0-preview.3.21201.4"
@@ -1339,6 +1349,13 @@
       "sha512": "sha512-R5b6iSOmj4iIlOuI69na0HjqqtbmOgl94jE7iKOtlRZtP5aoMGQY8G0ga97Pirhyy/K1Ex0RuEndjymOyt4yzA==",
       "path": "mock/1.0.0",
       "hashPath": "mock.1.0.0.nupkg.sha512"
+    },
+    "MockMailbox/0.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cL3Yn71Njv/PLoHCQYpqWE4HXqjmv4L165bWrwh0tWMRqk1pMixxKKg9lt5ywvevMWWDt7OCyqMidgAob/3CTg==",
+      "path": "mockmailbox/0.1.0",
+      "hashPath": "mockmailbox.0.1.0.nupkg.sha512"
     },
     "Newtonsoft.Json/11.0.1": {
       "type": "package",

@@ -204,3 +204,8 @@ C:\Workspace\TodoApi\TodoApp.API\obj\Debug\net5.0\TodoApp.API.dll
 C:\Workspace\TodoApi\TodoApp.API\obj\Debug\net5.0\ref\TodoApp.API.dll
 C:\Workspace\TodoApi\TodoApp.API\obj\Debug\net5.0\TodoApp.API.pdb
 C:\Workspace\TodoApi\TodoApp.API\obj\Debug\net5.0\TodoApp.API.genruntimeconfig.cache
+C:\Users\hp\RiderProjects\TodoApi3\TodoApp.API\bin\Debug\net5.0\MockMailbox.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApp.API\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApp.API\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApp.API\bin\Debug\net5.0\Microsoft.Extensions.Configuration.NewtonsoftJson.dll
+C:\Users\hp\RiderProjects\TodoApi3\TodoApp.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

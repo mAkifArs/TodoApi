@@ -39,6 +39,8 @@ namespace TodoApp.API
             services.AddHangfire(x => x.UsePostgreSqlStorage(Configuration.GetConnectionString("Postgres")));
             services.AddHangfireServer();
             services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddScoped<ITodoListService, TodoListService>();
             services.AddScoped<IUserService, UserService>();
             services.AddDbContext<TodoApiDataContext>(options =>

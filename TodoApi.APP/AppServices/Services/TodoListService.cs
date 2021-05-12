@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MockMailbox;
 using TodoApi.APP.AppServices.IServices;
 using TodoApi.DATA;
 using TodoApi.DATA.DTO;
@@ -41,12 +44,6 @@ namespace TodoApi.APP.AppServices.Services
             await _context.SaveChangesAsync();
 
         }
-
-        public Task<TodoListDTO> GetTodoList(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public async Task<List<TodoListDTO>> GetTodoLists(string username)
         {
             var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
@@ -112,6 +109,47 @@ namespace TodoApi.APP.AppServices.Services
             return dto;
         }
 
-        
+        public async Task SendEmail(string username)
+        {
+            var user = _context.UserInfos.Include(x => x.TodoLists).FirstOrDefault(x => x.Name == username);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı bulunamadı");
+            }
+            var dto = new List<TodoListDTO>();
+            if (user.TodoLists != null){
+                foreach (var list in user.TodoLists)
+                {
+                    if (list.DateofJob == DateTime.Today)
+                    {
+                        dto.Add(new TodoListDTO
+                        {
+                            Content = list.Content,
+                            DateofJob = list.DateofJob,
+                            UserId = user.UserId,
+                            UserInfoDto = new UserInfoDTO
+                            {
+                                Mail = user.Mail,
+                                Name = user.Name
+                            }
+                        });
+                    }
+                }
+            }
+
+            var smtpClient = new SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("ars.makif@gmail.com", "SvS2270780"),
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+            };
+            var mailContent = dto.Select(x => x.Content); 
+            var mailMessage = new MailAddress(user.Mail);
+            smtpClient.Send("ars.makif@gmail.com",""+mailMessage +"","Günlük Hatırlatma",@"Merhaba Bugün Yapacaklarınız :"+ String.Join(", ", mailContent.ToArray())+"")  ;
+            
+        }
     }
+
+    
 }

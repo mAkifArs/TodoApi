@@ -64,6 +64,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.2, )"
@@ -84,9 +88,17 @@
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.4, )"
             },
+            "Microsoft.Extensions.Configuration.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Mock": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "MockMailbox": {
+              "target": "Package",
+              "version": "[0.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -179,6 +191,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.2, )"
@@ -199,9 +215,17 @@
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.4, )"
             },
+            "Microsoft.Extensions.Configuration.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Mock": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "MockMailbox": {
+              "target": "Package",
+              "version": "[0.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -301,6 +325,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.2, )"
@@ -321,9 +349,17 @@
               "target": "Package",
               "version": "[6.0.0-preview.3.21201.4, )"
             },
+            "Microsoft.Extensions.Configuration.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
             "Mock": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "MockMailbox": {
+              "target": "Package",
+              "version": "[0.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
