@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Hangfire;
 using Microsoft.EntityFrameworkCore;
-using MockMailbox;
 using TodoApi.APP.AppServices.IServices;
 using TodoApi.DATA;
 using TodoApi.DATA.DTO;
@@ -123,7 +122,13 @@ namespace TodoApi.APP.AppServices.Services
                 throw new Exception("Kullanıcı bulunamadı");
             }
             var usersTodayTodos = await GetTodoListWithDate(username,DateTime.Today.AddDays(1));
-            await SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray());
+            if (usersTodayTodos == null)
+            {
+                throw new Exception("Yarın için yapılacak bir işiniz yok.");
+            }
+            BackgroundJob.Schedule(() => SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray()),DateTime.Today );
+            
+            
         }
 
         public async Task SendMail(string userMail,string [] mailContent)
