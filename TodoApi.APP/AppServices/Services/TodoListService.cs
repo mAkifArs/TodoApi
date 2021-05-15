@@ -126,9 +126,8 @@ namespace TodoApi.APP.AppServices.Services
             {
                 throw new Exception("Yarın için yapılacak bir işiniz yok.");
             }
-            BackgroundJob.Schedule(() => SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray()),DateTime.Today );
-            
-            
+
+            await SendMail(user.Mail, usersTodayTodos.Select(x => x.Content).ToArray());
         }
 
         public async Task SendMail(string userMail,string [] mailContent)
@@ -136,15 +135,40 @@ namespace TodoApi.APP.AppServices.Services
             var smtpClient = new SmtpClient("smtp.gmail.com")
             {
                 Port = 587,
-                Credentials = new NetworkCredential("ars.makif@gmail.com", "SvS2270780"),
+                Credentials = new NetworkCredential("systemmail", "pass"),
                 EnableSsl = true,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
             };
             var mailMessage = new MailAddress(userMail);
             smtpClient.Send("ars.makif@gmail.com",""+mailMessage +"","Günlük Hatırlatma",@"Merhaba Bugün Yapacaklarınız :"+ String.Join(", ", mailContent.ToArray())+"")  ;
+        }
+        public async Task GetAllUserTodo()
+        {
+            var max = _context.UserInfos.Count();
+            for (int x = 1; x < max; x++)
+            {
+                var user = _context.UserInfos.Include(z => z.TodoLists).FirstOrDefault(z => z.UserId == x);
+                var dto = new List<TodoListDTO>();
+                if (user != null && user.TodoLists!=null)
+                {
+                    dto = user.TodoLists.Where(todo =>
+                            todo.DateofJob.ToShortDateString().Equals(DateTime.Today.AddDays(1).ToShortDateString()))
+                        .Select(todo => new TodoListDTO()
+                        {
+                            Content = todo.Content,
+                            UserInfoDto = new UserInfoDTO()
+                            {
+                                Mail = user.Mail
+                            }
+                            
+                            
+                        }).ToList();
+                }
 
+
+                if (user != null) await SendMail(user.Mail, dto.Select(z => z.Content).ToArray());
+            }
+            
         }
     }
-
-    
 }

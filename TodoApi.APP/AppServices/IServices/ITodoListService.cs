@@ -13,6 +13,6 @@ namespace TodoApi.APP.AppServices.IServices
         Task TodaysTodoSendEmail(string username);
         Task SendMail(string userMail, string[] mailContent);
         Task TomorrowsTodo(string username);
-        
+        Task GetAllUserTodo();
     }
 }

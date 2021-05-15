@@ -10,8 +10,8 @@ using TodoApi.DATA;
 namespace TodoApi.DATA.Migrations
 {
     [DbContext(typeof(TodoApiDataContext))]
-    [Migration("20210510181928_lastformat")]
-    partial class lastformat
+    [Migration("20210515145738_All")]
+    partial class All
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

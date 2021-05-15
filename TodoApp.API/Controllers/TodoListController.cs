@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Hangfire;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,14 @@ namespace TodoApp.API.Controllers
         public IActionResult TomorrowsTodo(string username)
         {
             return Ok(_todoListService.TomorrowsTodo(username));
+        }
+
+        [Route("api/hangfire/Mailsender")]
+        [HttpPost]
+        public async Task<IActionResult> GetAllUserTodo()
+        {
+            RecurringJob.AddOrUpdate(() => GetAllUserTodo(),Cron.Daily(8,30));
+            return Ok(_todoListService.GetAllUserTodo());
         }
     }
 }
